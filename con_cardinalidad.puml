@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Persona
+class Person
+class Member
+class BoardMember
+
+'Evento
+class Event
+class Conference
+class BoardMetting
+
+'Asociacion
+class AAUOC
+class Location
+
+Event <|-- Conference
+Event <|-- BoardMetting
+
+Person <|-- Member
+Member <|-- BoardMember
+
+Person "0..*" -- "0..*" Conference : attendsTo
+BoardMember"0..*" -- "0..*" BoardMetting : attendsTo
+Event "0..*" -- "0..*" Member : attendsTo
+Event "0..*" -- "1" Location : isLocatedIn
+
+AAUOC o-- "0..*" Location
+AAUOC o-- "0..*" Event
+AAUOC o-- "0..*" Person
+@enduml
