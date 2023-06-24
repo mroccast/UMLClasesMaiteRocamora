@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Event
+class Conference
+class BoardMetting
+
+Event <|-- Conference
+Event <|-- BoardMetting
+
+@enduml
