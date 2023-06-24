@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Persona
+class Person {
+	name: String
+}
+class Member {
+	email: String
+}
+class BoardMember
+
+'Evento
+class Event {
+	date: Date
+	description: String
+	assign(l: Location): void
+}
+class Conference {
+	max_attendees: Integer
+}
+class BoardMetting
+
+'Asociacion
+class AAUOC {
+	newLocation(l: Location): void
+	newEvent(e: Event): void
+	newPerson(p: Person): void
+	informEvent(e: Event): void
+	register(m: Member, e: Event): void
+}
+class Location {
+	description: String
+	address: String
+}
+
+Event <|-- Conference
+Event <|-- BoardMetting
+
+Person <|-- Member
+Member <|-- BoardMember
+
+Person -- Conference : attendsTo
+BoardMember -- BoardMetting : attendsTo
+Event -- Member : attendsTo
+Event -- Location : isLocatedIn
+
+AAUOC o-- Location
+AAUOC o-- Event
+AAUOC o-- Person
+@enduml
