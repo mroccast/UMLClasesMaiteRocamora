@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Person
+class Member
+class BoardMember
+
+Person <|-- Member
+Member <|-- BoardMember
+
+@enduml
